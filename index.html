@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>张氏中医按摩理疗 | Maison ZHANG Paris</title>
+    <!-- 引入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0F1412; /* 午夜森林绿 */
+            --secondary: #C5A059; /* 古铜金 */
+            --bg-sand: #F9F7F2; /* 暖白沙色 */
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-sand);
+            color: #1A1A1A;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden; /* 严防手机端左右滑动 */
+        }
+        .font-serif { font-family: 'Cormorant Garamond', serif; }
+        .text-gold { color: var(--secondary); }
+        .bg-forest { background-color: var(--primary); }
+        
+        /* 价格超大字体 - 增加手机端适配 */
+        .price-huge {
+            font-size: clamp(2.8rem, 10vw, 4.5rem);
+            line-height: 0.8;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+        }
+
+        /* 菜单交互 */
+        .service-row {
+            transition: all 0.4s ease;
+            border-bottom: 0.5px solid rgba(15, 20, 18, 0.1);
+        }
+        @media (min-width: 1024px) {
+            .service-row:hover {
+                background-color: rgba(197, 160, 89, 0.05);
+                transform: translateX(10px);
+            }
+        }
+
+        /* 修复高亮块在移动端的显示 */
+        .featured-row {
+            background-color: rgba(240, 235, 225, 0.6);
+            border-left: 4px solid var(--secondary);
+            margin-left: -1rem;
+            margin-right: -1rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        @media (min-width: 768px) {
+            .featured-row {
+                margin-left: -2rem;
+                margin-right: -2rem;
+                padding-left: 2rem;
+                padding-right: 2rem;
+                border-radius: 4px;
+            }
+        }
+    </style>
+</head>
+<body class="selection:bg-stone-200">
+
+    <!-- 导航栏 -->
+    <nav class="fixed w-full z-50 bg-[#F9F7F2]/95 backdrop-blur-md border-b border-stone-200">
+        <div class="max-w-6xl mx-auto px-5 h-20 flex justify-between items-center text-primary">
+            <div class="flex flex-col leading-none">
+                <span class="text-lg md:text-xl font-bold tracking-widest uppercase">张氏中医按摩理疗</span>
+                <span class="text-[9px] md:text-[10px] uppercase tracking-[0.25em] text-[#C5A059] mt-1 font-semibold">ZHANG Massage Thérapeutique</span>
+            </div>
+            <div class="text-[8px] md:text-[9px] font-bold text-stone-400 uppercase tracking-widest text-right">
+                Depuis 1997<br/>Paris 9<sup>e</sup>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄区 (Hero) -->
+    <section class="pt-40 pb-16 px-6 text-center">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-4xl md:text-7xl font-serif italic mb-6 leading-tight">
+                深层理疗，<br/><span class="text-stone-700 font-normal">释放积压的肌肉疲劳</span>
+            </h1>
+            <p class="text-stone-500 max-w-2xl mx-auto text-base md:text-lg font-light leading-relaxed mb-8">
+                传承二十余年手法经验。我致力于通过深度的经络调理与肌肉修复，为您在巴黎的繁忙中找回身心的中轴线。
+            </p>
+            <div class="inline-block px-5 py-2.5 border border-[#C5A059] text-[#C5A059] text-[10px] font-bold uppercase tracking-[0.2em] rounded-full">
+                Rue de Budapest, 75009 Paris
+            </div>
+        </div>
+    </section>
+
+    <!-- 品牌价值区 (Privileges) -->
+    <section class="bg-[#0F1412] py-20 text-white relative">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <span class="text-[#C5A059] text-[10px] font-bold uppercase tracking-[0.4em] mb-4 block">Tarifs & Privilèges</span>
+            <h2 class="text-3xl md:text-4xl font-serif italic mb-8">专属礼遇 / Privilèges</h2>
+            <div class="w-12 h-[0.5px] bg-[#C5A059]/50 mx-auto mb-10"></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 text-stone-300 font-light">
+                <div class="space-y-2">
+                    <p class="text-white font-semibold text-lg">新客首单 / Offre de Bienvenue</p>
+                    <p class="text-sm italic">首次预约体验立享 <b class="text-[#C5A059]">折扣体验价</b>。</p>
+                </div>
+                <div class="space-y-2">
+                    <p class="text-white font-semibold text-lg">十次卡 / Forfait 10 Séances</p>
+                    <p class="text-sm italic">办理十次卡即可锁定会员专享价。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 理疗菜单 (Menu) -->
+    <section id="menu" class="py-24 container mx-auto px-5">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-serif mb-3">理疗菜单</h2>
+            <p class="text-[10px] uppercase tracking-[0.5em] text-[#C5A059] font-bold">Menu des Soins</p>
+        </div>
+
+        <div class="max-w-4xl mx-auto space-y-2">
+            <!-- 30 MIN -->
+            <div class="service-row flex flex-col md:flex-row justify-between items-start md:items-center py-10 gap-4">
+                <div class="flex-1">
+                    <h3 class="text-2xl md:text-3xl font-serif mb-2 font-medium italic">针对性局部理疗 <small class="text-xs font-sans text-stone-400 ml-2 font-normal">30 min</small></h3>
+                    <p class="text-stone-500 text-xs md:text-sm font-light italic leading-relaxed">Focus nuque, épaules ou bas du dos. 解决特定区域的疼痛。</p>
+                </div>
+                <div class="flex items-end gap-6 md:gap-8 w-full md:w-auto justify-between md:justify-end border-t border-stone-100 md:border-none pt-4 md:pt-0">
+                    <div class="text-left md:text-right">
+                        <span class="block text-[8px] uppercase font-bold text-stone-300 mb-1">Standard</span>
+                        <span class="text-lg font-serif text-stone-300 line-through">40€</span>
+                    </div>
+                    <div class="text-right">
+                        <span class="block text-[8px] uppercase font-bold text-[#C5A059] mb-1 font-semibold">Membre</span>
+                        <span class="price-huge text-[#0F1412]">35<small class="text-lg ml-0.5 font-normal italic">€</small></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 70 MIN (FEATURED) -->
+            <div class="featured-row flex flex-col md:flex-row justify-between items-start md:items-center py-12 gap-6 my-8">
+                <div class="flex-1">
+                    <div class="flex items-center gap-3 mb-3">
+                        <h3 class="text-2xl md:text-3xl font-serif font-medium italic">深度康复理疗</h3>
+                        <span class="bg-[#C5A059] text-[#0F1412] text-[8px] font-bold px-2 py-0.5 uppercase tracking-tighter">60 + 10 min</span>
+                    </div>
+                    <p class="text-stone-600 text-xs md:text-sm font-light leading-relaxed">主推项目。买一小时赠送10分钟。纯手工或物理脉冲结合可选。</p>
+                </div>
+                <div class="flex items-end gap-6 md:gap-8 w-full md:w-auto justify-between md:justify-end border-t border-stone-200 md:border-none pt-4 md:pt-0">
+                    <div class="text-left md:text-right">
+                        <span class="block text-[8px] uppercase font-bold text-stone-400/40 mb-1">Standard</span>
+                        <span class="text-lg font-serif text-stone-400/40 line-through">75€</span>
+                    </div>
+                    <div class="text-right">
+                        <span class="block text-[8px] uppercase font-bold text-[#C5A059] mb-1 font-black tracking-widest">Offre</span>
+                        <span class="price-huge text-[#0F1412]">65<small class="text-lg ml-0.5 font-normal italic">€</small></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 90 MIN -->
+            <div class="service-row flex flex-col md:flex-row justify-between items-start md:items-center py-10 gap-4">
+                <div class="flex-1">
+                    <h3 class="text-2xl md:text-3xl font-serif mb-2 font-medium italic">至尊深度理疗 <small class="text-xs font-sans text-stone-400 ml-2 font-normal">90 min</small></h3>
+                    <p class="text-stone-500 text-xs md:text-sm font-light italic leading-relaxed">Soin Signature Profond. 可选纯手工深度按摩或物理脉冲结合手法。</p>
+                </div>
+                <div class="flex items-end gap-6 md:gap-8 w-full md:w-auto justify-between md:justify-end border-t border-stone-100 md:border-none pt-4 md:pt-0">
+                    <div class="text-left md:text-right">
+                        <span class="block text-[8px] uppercase font-bold text-stone-300 mb-1">Standard</span>
+                        <span class="text-lg font-serif text-stone-300 line-through">105€</span>
+                    </div>
+                    <div class="text-right">
+                        <span class="block text-[8px] uppercase font-bold text-[#C5A059] mb-1 font-semibold">Membre</span>
+                        <span class="price-huge text-[#0F1412]">90<small class="text-lg ml-0.5 font-normal italic">€</small></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系与预约 (Contact) -->
+    <section id="contact" class="bg-white py-24 border-t border-stone-100">
+        <div class="max-w-5xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+            <div class="space-y-10 text-left">
+                <div>
+                    <h4 class="text-[9px] font-bold uppercase tracking-[0.3em] text-stone-300 mb-4">Studio / 工作室</h4>
+                    <p class="text-2xl font-serif text-[#0F1412]">Rue de Budapest, 75009 Paris</p>
+                    <p class="text-[11px] text-stone-500 mt-2 font-light italic tracking-wide">Saint-Lazare · Opéra · Haussmann</p>
+                </div>
+                <div>
+                    <h4 class="text-[9px] font-bold uppercase tracking-[0.3em] text-stone-300 mb-4">Contact / 联系</h4>
+                    <a href="tel:0781628488" class="text-3xl md:text-4xl font-serif tracking-tighter text-[#0F1412] block hover:text-[#C5A059] transition-all duration-300">07 81 62 84 88</a>
+                    <div class="flex gap-8 mt-6">
+                        <a href="sms:0781628488" class="text-[10px] font-bold border-b border-[#0F1412] pb-1 hover:text-[#C5A059] hover:border-[#C5A059] transition-all uppercase tracking-widest">短信 / SMS</a>
+                        <p class="text-[10px] font-bold text-stone-300 uppercase tracking-widest">微信 / WeChat</p>
+                    </div>
+                </div>
+                <div class="pt-8 border-t border-stone-100">
+                    <p class="text-xs text-stone-400 leading-relaxed font-light italic">
+                        "身体是灵魂的圣殿，请悉心呵护它的入口。"<br/>
+                        <span class="mt-3 block font-bold text-stone-500 text-[10px] tracking-widest uppercase">— Maison ZHANG · Fondée en 1997</span>
+                    </p>
+                </div>
+            </div>
+            <div class="flex flex-col items-center">
+                <div class="bg-white p-5 border border-stone-100 shadow-xl rounded-sm group relative">
+                    <div class="absolute -inset-1 border border-[#C5A059]/10 group-hover:border-[#C5A059]/30 transition-all duration-700"></div>
+                    <img src="wechat.png" alt="Wechat QR" class="w-52 h-52 md:w-60 md:h-60 grayscale group-hover:grayscale-0 transition-all duration-1000" onerror="this.style.display='none';">
+                </div>
+                <p class="mt-6 text-[11px] font-bold text-[#0F1412] uppercase tracking-[0.2em] text-center">扫描二维码预约您的理疗旅程</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="py-12 bg-[#F9F7F2] border-t border-stone-200 text-center px-6">
+        <p class="text-[8px] font-bold uppercase tracking-[0.5em] text-stone-300 italic">© 2025 ZHANG MASSAGE THÉRAPEUTIQUE | CABINET PARIS 9E</p>
+    </footer>
+
+</body>
+</html>
